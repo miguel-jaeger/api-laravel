@@ -10,9 +10,8 @@ use App\Http\Controllers\studentController
 
 Route::get('/students', [studentController::class,'index']);
 
-Route::post('/students', function () {
-    return "Create a new student";
-});
+Route::post('/students', [studentController::class,'create']);
+
 Route::put('/students/{id}', function () {
     return "Update student";
 });
