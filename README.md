@@ -17,3 +17,21 @@ Pasos
     php artisan make:model Student
 8. crear controlador
     php artisan make:controller StudentsController    
+9. si queremos utilizar mysql, actualizar en .env
+# MySQL CONFIG
+# DB_CONNECTION=mysql
+# DB_HOST=127.0.0.1
+# DB_PORT=3306
+# DB_DATABASE=students
+# DB_USERNAME=root
+# DB_PASSWORD=root    
+
+
+10. para corregir bug al realizar la migración, agregar al fichero app\Providers\AppServiceProvider.php 
+
+ public function boot()
+    {
+        // agregar
+         Schema::defaultStringLength(191);
+    }
+
