@@ -2,14 +2,13 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\studentController
+;
 /*Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');*/
 
-Route::get('/students', function () {
-    return "List off students";
-});
+Route::get('/students', [studentController::class,'index']);
 
 Route::post('/students', function () {
     return "Create a new student";
@@ -23,4 +22,3 @@ Route::delete('/students/{id}', function () {
 Route::get('/students/{id}', function () {
     return "Get student";
 });
-
