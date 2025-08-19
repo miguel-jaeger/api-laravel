@@ -11,3 +11,7 @@ Route::get('/students', function () {
     return "List off students";
 });
 
+Route::post('/students', function () {
+    return "Create a new student";
+});
+
