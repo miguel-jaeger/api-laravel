@@ -7,4 +7,13 @@ Pasos
     composer create-project laravel/laravel api
 3. iniciar proyecto
     php artisan serve
-4.
+4. instalar api
+    php artisan install:api
+5. crear migracion
+    php artisan make:migration create_students_table
+6. ejecutar migracion
+    php artisan migrate
+7. crer modelo
+    php artisan make:model Student
+8. crear controlador
+    php artisan make:controller StudentsController    
