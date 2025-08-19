@@ -14,4 +14,7 @@ Route::get('/students', function () {
 Route::post('/students', function () {
     return "Create a new student";
 });
+Route::put('/students/{id}', function () {
+    return "Update student";
+});
 
