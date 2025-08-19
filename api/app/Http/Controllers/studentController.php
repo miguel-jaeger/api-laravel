@@ -10,59 +10,58 @@ use App\Models\Student;
 
 class studentController extends Controller
 {
-    //
-
+    // list all students
     public function index()
     {
-        $students=Student::all();
+        $students = Student::all();
 
-        if($students->isEmpty()){
-            $data=[
+        if ($students->isEmpty()) {
+            $data = [
                 'message' => 'No students found',
                 'status' => 404
             ];
-            return response()->json($data,200);
+            return response()->json($data, 200);
         }
-        return response()->json($students,200);
+        return response()->json($students, 200);
     }
 
+    // crerate student
     public function create(Request $request)
     {
-        $validate=Validator::make($request->all(),[
+        $validate = Validator::make($request->all(), [
             'name' => 'required|string',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:students',
             'phone' => 'required|string',
-            'language' => 'required|string',
+            'language' => 'required|in:English,Spanish,French,Portuguese',
 
-        ]  );
-        
-        if($validate->fails()){
-            $data=[
+        ]);
+
+        if ($validate->fails()) {
+            $data = [
                 'message' => 'Invalid data',
-                'errors' => $validate->errors(),                
-                'status' => 400            
+                'errors' => $validate->errors(),
+                'status' => 400
             ];
 
-            return response()->json($data,400);
+            return response()->json($data, 400);
         }
 
-        $student= Student::create($request->all());
-        if(!$student){
-            $data=[
+        $student = Student::create($request->all());
+        if (!$student) {
+            $data = [
                 'message' => 'Error creating student',
                 'status' => 500
             ];
-            return response()->json($data,500);
+            return response()->json($data, 500);
         }
 
-        $data=[
+        $data = [
             'message' => 'Student created',
             'status' => 201,
             'student' => $student
         ];
-        return response()->json($data,201);
-        
-
+        return response()->json($data, 201);
     }
 
+   
 }
