@@ -17,4 +17,7 @@ Route::post('/students', function () {
 Route::put('/students/{id}', function () {
     return "Update student";
 });
+Route::delete('/students/{id}', function () {
+    return "Delete student";
+});
 
