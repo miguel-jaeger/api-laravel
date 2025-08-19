@@ -8,5 +8,10 @@ class studentController extends Controller
 {
     //
 
-    publi
+    public function index()
+    {
+        return "List off students from controller";
+    }
+
+
 }
