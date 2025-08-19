@@ -12,8 +12,7 @@ Route::get('/students', [studentController::class,'index']);
 
 Route::post('/students', [studentController::class,'create']);
 
-Route::put('/students/{id}', function () {
-    return "Update student";
-});
+Route::put('/students/{id}', [studentController::class,'update']);
+Route::patch('/students/{id}', [studentController::class,'updatePartials']);
 Route::delete('/students/{id}', [studentController::class,'delete']);
 Route::get('/students/{id}',[studentController::class,'show']);
