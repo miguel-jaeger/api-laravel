@@ -20,4 +20,7 @@ Route::put('/students/{id}', function () {
 Route::delete('/students/{id}', function () {
     return "Delete student";
 });
+Route::get('/students/{id}', function () {
+    return "Get student";
+});
 
